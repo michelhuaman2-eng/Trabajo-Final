@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Servicios - Kompressur S.A.C.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="modulo-servicios.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom py-3">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand text-primary fw-bold" href="#">Sistema de Gestión</a>
+            <div class="d-flex align-items-center ms-auto">
+                <span class="d-none d-md-block me-3 text-muted">Karenca@gmail.com</span>
+                <a href="Página de Inicio.html" class="btn btn-outline-danger">Cerrar Sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="pagina principal.html">Volver a la Página Principal</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Servicios</li>
+            </ol>
+        </nav>
+
+        <h1 class="mb-2">Servicios</h1>
+        <p class="text-muted mb-4">Gestión y seguimiento de servicios técnicos</p>
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="flex-grow-1 me-2">
+                <div class="input-group">
+                    <span class="input-group-text bg-white"><i class="fas fa-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Buscar por cliente, máquina, tipo de servicio, referencia o productos...">
+                </div>
+            </div>
+            <button class="btn btn-outline-secondary me-2"><i class="fas fa-filter me-1"></i> Todos los Tipos</button>
+            <button class="btn btn-primary me-2" id="btnCotizaciones"><i class="fas fa-file-invoice me-1"></i> Cotizaciones</button>
+            <button class="btn btn-outline-dark"><i class="fas fa-download me-1"></i> Exportar</button>
+        </div>
+
+        <section class="row g-3 mb-4">
+            <div class="col-md-3">
+                <div class="bg-white summary-card d-flex align-items-center">
+                    <i class="fas fa-wrench text-primary me-3" style="font-size: 2rem;"></i>
+                    <div>
+                        <p class="mb-0 text-muted">Total Servicios</p>
+                        <h4 class="mb-0 fw-bold">6</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="bg-white summary-card d-flex align-items-center">
+                    <i class="fas fa-check-circle text-success me-3" style="font-size: 2rem;"></i>
+                    <div>
+                        <p class="mb-0 text-muted">Garantías</p>
+                        <h4 class="mb-0 fw-bold">1</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="bg-white summary-card d-flex align-items-center">
+                    <i class="fas fa-cog text-warning me-3" style="font-size: 2rem;"></i>
+                    <div>
+                        <p class="mb-0 text-muted">Preventivos</p>
+                        <h4 class="mb-0 fw-bold">3</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="bg-white summary-card d-flex align-items-center">
+                    <i class="fas fa-exclamation-triangle text-danger me-3" style="font-size: 2rem;"></i>
+                    <div>
+                        <p class="mb-0 text-muted">Correctivos</p>
+                        <h4 class="mb-0 fw-bold">2</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="table-container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h5 class="mb-0">Historial de Servicios</h5>
+            </div>
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Tipo de Servicio</th>
+                        <th>Cliente</th>
+                        <th>Máquina</th>
+                        <th>Productos Utilizados</th>
+                        <th>Motivo</th>
+                        <th>Ref.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024-02-15 14:30</td>
+                        <td><span class="badge bg-primary">garantía</span></td>
+                        <td>
+                            <div class="fw-bold">CLI-001</div>
+                            <div class="text-muted" style="font-size: 0.9rem;">Juan Carlos Pérez<br>Tecnología Avanzada S.A.</div>
+                        </td>
+                        <td>
+                            <div class="fw-bold">MAC-001</div>
+                            <div class="text-muted" style="font-size: 0.9rem;">Fresadora CNC Haas VF-2<br>Fresadora CNC</div>
+                        </td>
+                        <td>PRD-001 (1)</td>
+                        <td>Reparación de pantalla bajo garantía</td>
+                        <td>GA-21</td>
+                    </tr>
+                    <tr>
+                        <td>2024-02-14 09:15</td>
+                        <td><span class="badge bg-success">plan A</span></td>
+                        <td>
+                            <div class="fw-bold">CLI-002</div>
+                            <div class="text-muted" style="font-size: 0.9rem;">María Elena García<br>Innovación Digital</div>
+                        </td>
+                        <td>
+                            <div class="fw-bold">MAC-002</div>
+                            <div class="text-muted" style="font-size: 0.9rem;">Torno CNC Mazak Quick Turn 250<br>Torno CNC</div>
+                        </td>
+                        <td>PRD-002 (2), PRD-005 (1)</td>
+                        <td>Mantenimiento preventivo mensual - Plan A</td>
+                        <td>PA-25</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script src="modulo-servicios.js"></script>
+</body>
+</html>
+

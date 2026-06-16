@@ -1,0 +1,33 @@
+body {
+            background-color: #f0f2f5;
+        }
+        .navbar-custom {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        .card-module {
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+        .card-module:hover {
+            transform: translateY(-5px);
+        }
+        .card-icon {
+            font-size: 2.5rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+        .icon-inventario { background-color: #e6f0ff; color: #0d6efd; }
+        .icon-clientes { background-color: #e5f6e8; color: #198754; }
+        .icon-maquinas { background-color: #f4e6ff; color: #6f42c1; }
+        .icon-servicios { background-color: #fff5e6; color: #fd7e14; }
+        .icon-reportes { background-color: #f7e6e6; color: #dc3545; }
+        .card-summary {
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .icon-summary {
+            font-size: 1.5rem;
+        }

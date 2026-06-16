@@ -1,0 +1,26 @@
+body {
+    background-color: #f0f2f5;
+}
+.navbar-custom {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+.summary-card {
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+}
+.table-container {
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+}
+
+.status-badge {
+    font-size: 0.8em;
+    padding: 0.4em 0.8em;
+}
+.text-purple {
+    color: #6f42c1;
+}

@@ -1,0 +1,104 @@
+.navbar-custom {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.summary-card {
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+}
+
+.table-container {
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+}
+
+.status-badge {
+    font-size: 0.8em;
+    padding: 0.4em 0.8em;
+}
+
+.text-purple {
+    color: #6f42c1;
+}
+
+/* Estilos para el sistema de pestañas */
+.tabs-container {
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.nav-tabs {
+    border-bottom: 2px solid #e9ecef;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0 1rem;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    border-radius: 0;
+    color: #6c757d;
+    font-weight: 500;
+    padding: 1rem 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-tabs .nav-link:hover {
+    border-color: transparent;
+    color: #007bff;
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.nav-tabs .nav-link.active {
+    color: #007bff;
+    background-color: #fff;
+    border-color: transparent;
+    border-bottom: 3px solid #007bff;
+    font-weight: 600;
+}
+
+.nav-tabs .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #007bff;
+}
+
+.tab-content {
+    padding: 0;
+}
+
+.tab-pane {
+    padding: 0;
+}
+
+/* Estilos para la tabla de rendimiento */
+.performance-badge {
+    font-size: 0.8em;
+    padding: 0.4em 0.8em;
+}
+
+.performance-high {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.performance-medium {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.performance-low {
+    background-color: #f8d7da;
+    color: #721c24;
+}

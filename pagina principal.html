@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Gestión - Kompressur S.A.C.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="pagina-principal.css"> <!-- Enlace al archivo CSS externo -->
+    <style>
+        body {
+            background-color: #f0f2f5;
+        }
+        .navbar-custom {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        .card-module {
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+        .card-module:hover {
+            transform: translateY(-5px);
+        }
+        .card-icon {
+            font-size: 2.5rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+        .icon-inventario { background-color: #e6f0ff; color: #0d6efd; }
+        .icon-clientes { background-color: #e5f6e8; color: #198754; }
+        .icon-maquinas { background-color: #f4e6ff; color: #6f42c1; }
+        .icon-servicios { background-color: #fff5e6; color: #fd7e14; }
+        .icon-reportes { background-color: #f7e6e6; color: #dc3545; }
+        .card-summary {
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .icon-summary {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom py-3">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand text-primary fw-bold" href="#">Sistema de Gestión</a>
+            <div class="d-flex align-items-center ms-auto">
+                <span class="d-none d-md-block me-3 text-muted">Kompressur@gmail.com</span>
+                <div class="position-relative me-3">
+                    <i class="fas fa-bell notification-bell" id="notificationBell" style="font-size: 1.2rem; cursor: pointer; color: #6c757d; transition: color 0.3s ease;"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger notification-badge" id="notificationBadge" style="display: none; font-size: 0.7rem;">0</span>
+                </div>
+                <a href="Página de Inicio.html" class="btn btn-outline-danger">Cerrar Sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dropdown de Notificaciones -->
+    <div class="position-fixed" id="notificationDropdown" style="top: 80px; right: 20px; z-index: 1050; display: none;">
+        <div class="card shadow-lg" style="width: 350px; max-height: 400px;">
+            <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
+                <h6 class="mb-0"><i class="fas fa-exclamation-triangle me-2"></i>Alertas de Inventario</h6>
+                <button type="button" class="btn-close btn-close-white" id="closeNotifications"></button>
+            </div>
+            <div class="card-body p-0" style="max-height: 300px; overflow-y: auto;">
+                <div id="notificationList">
+                    <!-- Las notificaciones se cargarán aquí dinámicamente -->
+                </div>
+                <div id="noNotifications" class="text-center p-4 text-muted" style="display: none;">
+                    <i class="fas fa-check-circle fa-2x mb-2 text-success"></i>
+                    <p class="mb-0">No hay alertas de inventario</p>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <small class="text-muted">Última actualización: <span id="lastUpdate"></span></small>
+            </div>
+        </div>
+    </div>
+
+    <main class="container mt-5">
+        <h1 class="mb-2">Bienvenido al Sistema</h1>
+        <p class="text-muted mb-4">Selecciona un módulo para comenzar a trabajar</p>
+        
+        <section class="row g-4 mb-5">
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module h-100">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-box icon-inventario card-icon"></i>
+                            <span class="badge bg-primary ms-2">Módulo</span>
+                        </div>
+                        <h5 class="card-title fw-bold">INVENTARIO</h5>
+                        <p class="card-text text-muted">Gestión de productos y stock</p>
+                        <a href="modulo inventario.html" class="btn btn-primary mt-auto">Acceder al Módulo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module h-100">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-users icon-clientes card-icon"></i>
+                            <span class="badge bg-success ms-2">Módulo</span>
+                        </div>
+                        <h5 class="card-title fw-bold">CLIENTES</h5>
+                        <p class="card-text text-muted">Administración de clientes</p>
+                        <a href="modulo clientes.html" class="btn btn-primary mt-auto">Acceder al Módulo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module h-100">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-cogs icon-maquinas card-icon"></i>
+                            <span class="badge bg-purple ms-2">Módulo</span>
+                        </div>
+                        <h5 class="card-title fw-bold">MÁQUINAS</h5>
+                        <p class="card-text text-muted">Control de equipos y maquinaria</p>
+                        <a href="modulo maquinas.html" class="btn btn-primary mt-auto">Acceder al Módulo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module h-100">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-wrench icon-servicios card-icon"></i>
+                            <span class="badge bg-orange ms-2">Módulo</span>
+                        </div>
+                        <h5 class="card-title fw-bold">SERVICIOS</h5>
+                        <p class="card-text text-muted">Gestión de servicios técnicos</p>
+                        <a href="modulo servicios.html" class="btn btn-primary mt-auto">Acceder al Módulo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module h-100">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-chart-line icon-reportes card-icon"></i>
+                            <span class="badge bg-danger ms-2">Módulo</span>
+                        </div>
+                        <h5 class="card-title fw-bold">REPORTES</h5>
+                        <p class="card-text text-muted">Análisis y reportes del sistema</p>
+                        <a href="modulo reportes.html" class="btn btn-primary mt-auto">Acceder al Módulo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module h-100">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-chart-line icon-reportes card-icon"></i>
+                            <span class="badge bg-danger ms-2">Módulo</span>
+                        </div>
+                        <h5 class="card-title fw-bold">FINANZAS</h5>
+                        <p class="card-text text-muted">Análisis y reportes del sistema</p>
+                        <a href="modulo finanzas.html" class="btn btn-primary mt-auto">Acceder al Módulo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="row g-4">
+            <div class="col-sm-6 col-md-3">
+                <div class="card card-summary py-3">
+                    <div class="card-body text-center">
+                        <i class="fas fa-box text-primary icon-summary mb-2"></i>
+                        <h5 class="fw-bold">1,247</h5>
+                        <p class="text-muted mb-0">Productos</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card card-summary py-3">
+                    <div class="card-body text-center">
+                        <i class="fas fa-users text-success icon-summary mb-2"></i>
+                        <h5 class="fw-bold">342</h5>
+                        <p class="text-muted mb-0">Clientes</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card card-summary py-3">
+                    <div class="card-body text-center">
+                        <i class="fas fa-cogs text-purple icon-summary mb-2"></i>
+                        <h5 class="fw-bold">89</h5>
+                        <p class="text-muted mb-0">Máquinas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card card-summary py-3">
+                    <div class="card-body text-center">
+                        <i class="fas fa-wrench text-orange icon-summary mb-2"></i>
+                        <h5 class="fw-bold">156</h5>
+                        <p class="text-muted mb-0">Servicios</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sistema de Notificaciones
+        document.addEventListener('DOMContentLoaded', function() {
+            const notificationBell = document.getElementById('notificationBell');
+            const notificationBadge = document.getElementById('notificationBadge');
+            const notificationDropdown = document.getElementById('notificationDropdown');
+            const notificationList = document.getElementById('notificationList');
+            const noNotifications = document.getElementById('noNotifications');
+            const closeNotifications = document.getElementById('closeNotifications');
+            const lastUpdate = document.getElementById('lastUpdate');
+
+            // Función para actualizar las notificaciones
+            function updateNotifications() {
+                const productos = JSON.parse(localStorage.getItem('productos')) || [];
+                const productosBajoStock = productos.filter(p => p.estado === 'Bajo Stock');
+                
+                // Actualizar badge
+                if (productosBajoStock.length > 0) {
+                    notificationBadge.textContent = productosBajoStock.length;
+                    notificationBadge.style.display = 'block';
+                    notificationBell.style.color = '#dc3545'; // Rojo
+                } else {
+                    notificationBadge.style.display = 'none';
+                    notificationBell.style.color = '#6c757d'; // Gris
+                }
+
+                // Actualizar lista de notificaciones
+                if (productosBajoStock.length > 0) {
+                    notificationList.innerHTML = '';
+                    productosBajoStock.forEach(producto => {
+                        const notificationItem = document.createElement('div');
+                        notificationItem.className = 'border-bottom p-3';
+                        notificationItem.innerHTML = `
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-exclamation-triangle text-warning me-3"></i>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1">${producto.nombre}</h6>
+                                    <p class="mb-0 text-muted small">
+                                        <strong>Código:</strong> ${producto.codigo}<br>
+                                        <strong>Stock:</strong> ${producto.stock} unidades<br>
+                                        <strong>Ubicación:</strong> ${producto.ubicacion || producto.categoria || 'N/A'}
+                                    </p>
+                                </div>
+                            </div>
+                        `;
+                        notificationList.appendChild(notificationItem);
+                    });
+                    noNotifications.style.display = 'none';
+                } else {
+                    notificationList.innerHTML = '';
+                    noNotifications.style.display = 'block';
+                }
+
+                // Actualizar timestamp
+                lastUpdate.textContent = new Date().toLocaleTimeString();
+            }
+
+            // Event listeners
+            notificationBell.addEventListener('click', function() {
+                if (notificationDropdown.style.display === 'none' || notificationDropdown.style.display === '') {
+                    notificationDropdown.style.display = 'block';
+                    updateNotifications();
+                } else {
+                    notificationDropdown.style.display = 'none';
+                }
+            });
+
+            closeNotifications.addEventListener('click', function() {
+                notificationDropdown.style.display = 'none';
+            });
+
+            // Cerrar dropdown al hacer clic fuera
+            document.addEventListener('click', function(event) {
+                if (!notificationBell.contains(event.target) && !notificationDropdown.contains(event.target)) {
+                    notificationDropdown.style.display = 'none';
+                }
+            });
+
+            // Actualizar notificaciones cada 30 segundos
+            setInterval(updateNotifications, 30000);
+
+            // Actualizar notificaciones al cargar la página
+            updateNotifications();
+
+            // Escuchar cambios en localStorage (para detectar cambios desde otros módulos)
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'productos') {
+                    updateNotifications();
+                }
+            });
+
+            // Escuchar eventos personalizados del módulo de inventario
+            window.addEventListener('inventoryUpdated', function(e) {
+                updateNotifications();
+            });
+
+            // Función para simular cambios de estado (para testing)
+            window.simulateLowStock = function() {
+                const productos = JSON.parse(localStorage.getItem('productos')) || [];
+                if (productos.length > 0) {
+                    productos[0].estado = 'Bajo Stock';
+                    productos[0].stock = 5;
+                    localStorage.setItem('productos', JSON.stringify(productos));
+                    updateNotifications();
+                }
+            };
+
+            window.clearLowStock = function() {
+                const productos = JSON.parse(localStorage.getItem('productos')) || [];
+                productos.forEach(p => {
+                    if (p.estado === 'Bajo Stock') {
+                        p.estado = 'Disponible';
+                        p.stock = 50;
+                    }
+                });
+                localStorage.setItem('productos', JSON.stringify(productos));
+                updateNotifications();
+            };
+        });
+    </script>
+    <style>
+        .bg-purple { background-color: #f4e6ff; }
+        .text-purple { color: #6f42c1; }
+        .bg-orange { background-color: #fff5e6; }
+        .text-orange { color: #fd7e14; }
+        
+        /* Estilos para notificaciones */
+        .notification-bell:hover {
+            color: #dc3545 !important;
+        }
+        
+        .notification-badge {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        #notificationDropdown {
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</body>
+</html>

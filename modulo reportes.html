@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Reportes - Kompressur S.A.C.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="modulo-reportes.css"> <!-- Enlace al archivo CSS externo -->
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom py-3">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand text-primary fw-bold" href="#">Sistema de Gestión</a>
+            <div class="d-flex align-items-center ms-auto">
+                <span class="d-none d-md-block me-3 text-muted">Karenca@gmail.com</span>
+                <a href="Página de Inicio.html" class="btn btn-outline-danger">Cerrar Sesión</a>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="pagina principal.html">Volver a la Página Principal</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Reportes</li>
+            </ol>
+        </nav>
+        
+        <h1 class="mb-2">Reportes</h1>
+        <p class="text-muted mb-4">Generación y visualización de reportes</p>
+
+        <section class="row g-4 mb-4">
+            <div class="col-md-4">
+                <div class="bg-white summary-card d-flex align-items-center">
+                    <i class="fas fa-chart-line text-primary me-3" style="font-size: 2rem;"></i>
+                    <div>
+                        <p class="mb-0 text-muted">Reportes Generados</p>
+                        <h4 class="mb-0 fw-bold">25</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-white summary-card d-flex align-items-center">
+                    <i class="fas fa-file-alt text-success me-3" style="font-size: 2rem;"></i>
+                    <div>
+                        <p class="mb-0 text-muted">Reportes Activos</p>
+                        <h4 class="mb-0 fw-bold">20</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-white summary-card d-flex align-items-center">
+                    <i class="fas fa-archive text-purple me-3" style="font-size: 2rem;"></i>
+                    <div>
+                        <p class="mb-0 text-muted">Reportes Archivados</p>
+                        <h4 class="mb-0 fw-bold">5</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sistema de Pestañas -->
+        <div class="tabs-container">
+            <ul class="nav nav-tabs" id="reportTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="inventario-tab" data-bs-toggle="tab" data-bs-target="#inventario" type="button" role="tab" aria-controls="inventario" aria-selected="true">
+                        <i class="fas fa-boxes me-2"></i>Inventario
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="rendimiento-tab" data-bs-toggle="tab" data-bs-target="#rendimiento" type="button" role="tab" aria-controls="rendimiento" aria-selected="false">
+                        <i class="fas fa-chart-line me-2"></i>Rendimiento Comercial
+                    </button>
+                </li>
+            </ul>
+            
+            <div class="tab-content" id="reportTabsContent">
+                <!-- Pestaña Inventario -->
+                <div class="tab-pane fade show active" id="inventario" role="tabpanel" aria-labelledby="inventario-tab">
+                    <section class="table-container">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h5 class="mb-0">Reporte de Stock Actual</h5>
+                            <div>
+                                <button class="btn btn-dark me-2"><i class="fas fa-plus me-1"></i> Nuevo Reporte</button>
+                                <button class="btn btn-outline-secondary"><i class="fas fa-download me-1"></i> Exportar</button>
+                            </div>
+                        </div>
+                        <div class="mb-3 d-flex align-items-center">
+                            <input type="text" class="form-control me-2" placeholder="Buscar reportes por nombre, fecha...">
+                            <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                        </div>
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nombre</th>
+                                    <th>Fecha</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaInventarioBody">
+                                <tr>
+                                    <td>1</td>
+                                    <td>Reporte A</td>
+                                    <td>2025-10-01</td>
+                                    <td><span class="badge bg-success status-badge">Activo</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info" title="Ver Detalles"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-warning" title="Editar Reporte"><i class="fas fa-pencil-alt"></i></button>
+                                        <button class="btn btn-sm btn-danger" title="Eliminar Reporte"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Reporte B</td>
+                                    <td>2025-09-15</td>
+                                    <td><span class="badge bg-warning status-badge">Archivado</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info" title="Ver Detalles"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-warning" title="Editar Reporte"><i class="fas fa-pencil-alt"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+                
+                <!-- Pestaña Rendimiento Comercial -->
+                <div class="tab-pane fade" id="rendimiento" role="tabpanel" aria-labelledby="rendimiento-tab">
+                    <section class="table-container">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h5 class="mb-0">Rendimiento por Vendedor</h5>
+                            <div>
+                                <button class="btn btn-success me-2" id="btnActualizarRendimiento"><i class="fas fa-sync me-1"></i> Actualizar</button>
+                                <button class="btn btn-outline-secondary" id="btnExportarRendimiento"><i class="fas fa-download me-1"></i> Exportar</button>
+                            </div>
+                        </div>
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Vendedor</th>
+                                    <th>Monto Vendido (S/)</th>
+                                    <th>Facturas Emitidas</th>
+                                    <th>Cotizaciones Enviadas</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaVendedoresBody">
+                                <!-- Se llenará dinámicamente con JavaScript -->
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script src="modulo-reportes.js"></script> <!-- Enlace al archivo JS externo -->
+</body>
+</html>
